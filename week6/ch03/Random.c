@@ -1,3 +1,4 @@
+//32位机上随机数发生器
 #include<stdio.h>
 #define A 48271L
 #define M 2147483647L
