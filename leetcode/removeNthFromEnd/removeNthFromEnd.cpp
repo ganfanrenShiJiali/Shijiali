@@ -33,3 +33,39 @@ public:
         return head;
     }
 };
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) 
+    {
+        ListNode* quick=head;
+        ListNode* slow=head;
+        while(n>0)
+        {
+            quick=quick->next;
+            n--;
+        }
+        if(quick==NULL)
+            return head->next;
+        while(quick->next!=NULL)
+        {
+            quick=quick->next;
+            slow=slow->next;
+        }
+        if(quick->next==NULL)
+        {
+            slow->next=slow->next->next;
+        }
+        return head;
+    }
+};
